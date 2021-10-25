@@ -9,7 +9,7 @@ const TaskFormPage = () => {
 
     const [task, setTask] = useState(inititalState);
     const { createTask, tasks } = useTasks();
-    const router = useRouter();
+    const {push} = useRouter();
 
     const handleChange = e => {
         setTask({ ...task, [e.target.name]: e.target.value });
@@ -18,7 +18,7 @@ const TaskFormPage = () => {
     const handleSubmit = e => {
         e.preventDefault();
         createTask(task.title, task.description);
-        console.log(tasks);
+        push('/');
     }
 
     return (
